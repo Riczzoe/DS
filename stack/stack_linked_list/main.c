@@ -16,5 +16,6 @@ int main() {
     pop(&stk, &e);
     printf("stack after popping: \n");
     printStack(&stk);
+    freeStack(&stk);
     return 0;
 }
