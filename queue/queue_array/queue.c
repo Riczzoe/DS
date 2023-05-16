@@ -11,7 +11,7 @@ int isQueueEmpty(const queue_t *q) {
 }
 
 static int __isQueueFull__(queue_t *q) {
-    return q->size == MAXSIZE;
+    return q->size == MAXSIZE - 1;
 }
 
 int enQueue(queue_t *q, Elemtype e) {
