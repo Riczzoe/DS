@@ -30,6 +30,7 @@ int enQueue(queue_t *q, Elemtype e) {
         return 0;
 
     newNode->data = e;
+    newNode->next = NULL;
     q->last->next = newNode;
     q->last = newNode;
     q->size++;
