@@ -44,6 +44,8 @@ int deQueue(queue_t *q, Elemtype *e) {
     *e = nodeNeedDelet->data;
     q->sentinel->next = nodeNeedDelet->next;
     q->size--;
+    if (!q->size)
+        q->last = q->sentinel;
     free(nodeNeedDelet);
     return 1;
 }
