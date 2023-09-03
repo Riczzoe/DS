@@ -14,13 +14,20 @@ DBGOBJS = $(patsubst %.c, %.dbg.o, $(SRCS))
 
 
 .PHONY: clean depend all
-all: main main-debug
+all: main application
+debug: main-debug application-debug
+
 main: $(OBJS)
 	gcc -o $@ -O3 $(OBJS)
 main-debug: $(DBGOBJS)
 	gcc -o $@ -ggdb3 -Og $(DBGOBJS)
 %.dbg.o: %.c
 	gcc $(DBGFLAGS) -c -o $@ $<
+application: application.o stack.o
+	cc -o $@ -O3 $<
+application-debug: application.dbg.o stack.dbg.o
+	$(cc) -o $@ -Og -ggdb3 $<
+
 
 # This is built in make, If we use make -p
 # we will find:

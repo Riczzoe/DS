@@ -5,7 +5,14 @@
 
 #define     BOOTOM_STACK    -1
 #define     MAXSIZE         50
-#define     Elemtype        int
+
+// The element type of stack, optional char, int, float, string
+#define     Elemtype        char
+// format string index 0:char, 1:int, 2:float, 3:string
+#define     __ELEMTYPE__    0
+#define     __FORMAT_SPEARATOR__    " "
+/* The number of Elemtype */
+#define     NUM_ELEMTYPES           4       
 
 typedef struct stack_tag {
     Elemtype data[MAXSIZE];
