@@ -4,9 +4,9 @@
 #include    <stdio.h>
 #include    <stdlib.h>
 /* The type of element in stack */
-#define     Elemtype                int    
+#define     Elemtype                char   
 /* The index of Elemtype in __ELEMTYPE_FORMAT__ */
-#define     __ELEMTYPE__            1      
+#define     __ELEMTYPE__            0 
 /* The spearator of each element when print stack */
 #define     __FORMAT_SPEARATOR__    " "     
 /* The number of Elemtype */
