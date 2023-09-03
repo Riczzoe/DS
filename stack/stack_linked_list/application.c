@@ -35,7 +35,9 @@ int main(int argc, char *argv[])
     char brackets[] = "({[]})";
     len = strlen(brackets);
     ret = bracket_check(brackets, len);
-    if (!ret)
+    if (ret != 1)
         printf("bracket check failed\n");
+    else
+        printf("bracket check success\n");
     return 0;
 }
