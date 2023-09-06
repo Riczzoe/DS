@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define     NOT_MATCH   -1
+
 /*
  * brute_force_search() - Performs a brute-force search to find the position
  * of a pattern string within a text string.This implementation uses pointer 
@@ -37,10 +39,10 @@ int brute_force_search(char *pat, char *txt)
             return i;
         /* if we've reached the end of the text string, that means no match */
         if (*tp == '\0')
-            return -1;
+            return NOT_MATCH;
     }
 
-    return -1;
+    return NOT_MATCH;
 }
 
 /*
@@ -69,7 +71,45 @@ int brute_force_search_without_point(char *pat, char *txt)
         if (j == plen)
             return i;
     }
-    return -1;
+    return NOT_MATCH;
+}
+
+/*
+ * explicit_backup_search() - Performs a brute-force search to find the 
+ * position of a pattern string within a text string. This implementation 
+ * uses explicit backup to reset the search position.
+ *
+ * @pat:    Pointer to the pattern string
+ * @txt:    Pointer to the text string
+ *
+ * Return:
+ *  -1  if the pattern string is not found
+ *  >=0 the position of the pattern string within the text string
+ */
+int explicit_backup_search(char *pat, char *txt)
+{
+    int plen = strlen(pat);
+    int tlen = strlen(txt);
+    int i, j;
+    
+    for (i = 0, j = 0; i < tlen && j < plen; i++) {
+        /* if the current character in the txt matches the current
+         * character in the pat, move to the next character in both
+         */
+        if (txt[i] == pat[j]) {
+            j++;
+        } else {
+            /* if the characters don't match, reset the position by
+             * backing up
+             */
+            i -= j;
+            j = 0;
+        }
+    }
+
+    if (j == plen)
+        return i - plen;
+    return NOT_MATCH;
 }
 
 /*
@@ -126,5 +166,8 @@ int main(void)
 
     printf("\ntest brute_force_search_without_point:\n");
     test_brute_force_search(brute_force_search_without_point);
+
+    printf("\ntest explicit_backup_search:\n");
+    test_brute_force_search(explicit_backup_search);
     return 0;
 }
