@@ -3,7 +3,7 @@ CFLAGS = -std=gnu99 -pedantic -Wall
 DBGFLAGS = -std=gnu99 -pedantic -Wall -ggdb3 -DDEBUG
 INC = -I./ -I../Searching/BST/ -I../queue/queue_linklist/
 
-TRAVSRCS = ../Searching/BST/BST.c tree_travel.c main.c ../queue/queue_linklist/queue.c
+TRAVSRCS = ../Searching/BST/BST.c tree_travel.c test.c ../queue/queue_linklist/queue.c
 TRAVOBJS = $(TRAVSRCS:.c=.o)
 TRAVDEGOBJS = $(TRAVSRCS:.c=.dbg.o)
 
