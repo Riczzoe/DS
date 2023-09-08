@@ -12,6 +12,11 @@ typedef struct ttnode {
     char lt, rg;
 } ttnode, *ttree;
 
-void create_threaded(ttree *root);
+void create_threaded(ttree*);
+ttnode* first_node_inorder(ttnode*);
+ttnode* find_successor(ttnode*);
+void inorder_trav_threaded(ttree);
+ttnode* last_node_inorder(ttnode*);
+ttnode* find_precursor(ttnode*);
 
 #endif      // THREADED_TREE_H
