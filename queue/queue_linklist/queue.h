@@ -15,7 +15,7 @@
  * char *      3
  */
 /* The type of element in queue */
-#define     Elemtype    int
+#define     Elemtype            void *
 /* The index of Elemtype in __ELEMTYPE_FORMAT__ */
 #define     __ELEMTYPE__            1
 
