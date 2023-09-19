@@ -20,5 +20,5 @@ int main(void)
     graph_print(&G);
 
     BFS(&G, 0);
-
+    DFS(&G, 0);
 }

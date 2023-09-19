@@ -43,3 +43,30 @@ void BFS(graph* G, int v) {
     }
     printf("\n");
 }
+
+static void DFS_Search(graph *G, int v) {
+    NODE_TYPE node;
+    if (!G)
+        return;
+    if (v >= G->V)
+        return;
+    
+    marked[v] = 1;
+    printf("%d ", v);
+    
+    for (node = graph_first_neighbour(G, v); node != NO_ADJACENCY;
+            node = graph_next_neighbour(G, v, node)) {
+        if (!marked[node]) {
+            DFS_Search(G, node);
+        }
+    }
+
+}
+
+void DFS(graph *G, int v) 
+{
+    init_marked();
+    printf("DFS: ");
+    DFS_Search(G, v);
+    printf("\n");
+}

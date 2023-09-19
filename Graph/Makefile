@@ -32,8 +32,8 @@ ga_test_dbg: $(GA_DBG_OBJS)
 	$(cc) $(DBGFLAGS) $(INC) -c $< -o $@
 
 clean:
-	rm -f *.o *.dbg.o graph_basic_test graph_basic_test_dbg
+	rm -f *.o *.dbg.o graph_basic_test graph_basic_test_dbg ga_test ga_test_dbg
 basic_check: graph_basic_test
 	valgrind --leak-check=full --show-leak-kinds=all ./graph_basic_test
-sf_check: sf_test
-	valgrind --leak-check=full --show-leak-kinds=all ./sf_test
+ga_check: ga_test
+	valgrind --leak-check=full --show-leak-kinds=all ./ga_test
