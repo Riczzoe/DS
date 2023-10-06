@@ -1,6 +1,6 @@
 cc 				= gcc
-CFLAGS 			= -std=gnu99 -Wall -pedantic
-DBGFLAGS    	= -std=gnu99 -Wall -pedantic -ggdb3 -DDEBUG
+CFLAGS 			= -std=gnu99 -Wall -pedantic -fsanitize=address
+DBGFLAGS    	= -std=gnu99 -Wall -pedantic -ggdb3 -DDEBUG -fsanitize=address
 
 BASIC_SORT_SRCS = basic_sort.c  basic_sort_test.c
 BASIC_SORT_OBJS = $(BASIC_SORT_SRCS:.c=.o)
