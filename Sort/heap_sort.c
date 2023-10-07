@@ -39,8 +39,6 @@ static void sink(int *elems, int start, int end)
 void heap_sort(int *elems, int len)
 {
     int k;
-    int len1 = len;
-
     /* heapify */
     for (k = parent(len); k >= 0; k--) {
         sink(elems, k, len);
