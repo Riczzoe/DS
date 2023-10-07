@@ -13,6 +13,7 @@ char *sort_names[] = {
     "Heap Sort (Priority Queue)",
     "Heap Sort",
     "Quick Sort",
+    "Radix Sort",
 };
 
 void (*sort_functions[])(int *, int) = {
@@ -24,6 +25,7 @@ void (*sort_functions[])(int *, int) = {
     heap_sort_pq,
     heap_sort,
     quick_sort,
+    radix_sort,
 };
 
 static int is_sorted(int *arr, int len) 

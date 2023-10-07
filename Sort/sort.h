@@ -9,6 +9,7 @@
 #define HEAP_SORT_PQ        5
 #define HEAP_SORT           6
 #define QUICK_SORT          7
+#define RADIX_SORT          8
 
 void selection_sort(int *elems, int len);
 void insertion_sort(int *elems, int len);
@@ -18,5 +19,6 @@ void merge_sort_dt(int *elems, int len);
 void heap_sort_pq(int *elems, int len);
 void heap_sort(int *elems, int len);
 void quick_sort(int *elems, int len);
+void radix_sort(int *elems, int len);
 
 #endif // SORT_H
