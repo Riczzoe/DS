@@ -12,6 +12,7 @@ char *sort_names[] = {
     "Merge Sort Down Top",
     "Heap Sort (Priority Queue)",
     "Heap Sort",
+    "Quick Sort",
 };
 
 void (*sort_functions[])(int *, int) = {
@@ -22,6 +23,7 @@ void (*sort_functions[])(int *, int) = {
     merge_sort_dt,
     heap_sort_pq,
     heap_sort,
+    quick_sort,
 };
 
 static int is_sorted(int *arr, int len) 
@@ -110,11 +112,12 @@ void final_result(int *result, int *funcs, int len)
     printf("--------------------------\033[0m\n");
 
     for (int i = 0; i < len; i++) {
-        int currentWidth = strlen(sort_names[i]);
+        int currentWidth = strlen(sort_names[funcs[i]]);
         if (currentWidth > maxWidth) {
             maxWidth = currentWidth;
         }
     }
+
 
     for (int i = 0; i < len; i++) {
         printf("%s ", result[i] ? "\033[32m\u2713\033[0m" : 
