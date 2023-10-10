@@ -2,11 +2,12 @@ cc 				= gcc
 CFLAGS 			= -std=gnu99 -Wall -pedantic 
 DBGFLAGS    	= -std=gnu99 -Wall -pedantic -ggdb3 -DDEBUG
 
-BASIC_SORT_SRCS = basic_sort.c sort_test.c basic_sort_test.c
+SORT_SRCS 		= basic_sort.c heap_sort_pq.c heap_sort.c quick_sort.c radix_sort.c sort_test.c
+BASIC_SORT_SRCS = $(SORT_SRCS) basic_sort_test.c
 BASIC_SORT_OBJS = $(BASIC_SORT_SRCS:.c=.o)
 BASIC_DBG_OBJS 	= $(BASIC_SORT_SRCS:.c=.dbg.o)
 
-ALL_SORT_SRCS 	= basic_sort.c heap_sort_pq.c heap_sort.c quick_sort.c radix_sort.c sort_test.c all_sort_test.c
+ALL_SORT_SRCS 	= $(SORT_SRCS) all_sort_test.c
 ALL_SORT_OBJS 	= $(ALL_SORT_SRCS:.c=.o)
 ALL_DBG_OBJS 	= $(ALL_SORT_SRCS:.c=.dbg.o)
 

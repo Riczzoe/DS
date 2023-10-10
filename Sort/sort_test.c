@@ -14,6 +14,7 @@ char *sort_names[] = {
     "Heap Sort",
     "Quick Sort",
     "Radix Sort",
+    "Radix Sort MSD",
 };
 
 void (*sort_functions[])(int *, int) = {
@@ -26,6 +27,7 @@ void (*sort_functions[])(int *, int) = {
     heap_sort,
     quick_sort,
     radix_sort,
+    radix_sort_msd,
 };
 
 static int is_sorted(int *arr, int len) 
@@ -63,7 +65,8 @@ int _test_sort(void (*sort)(int *, int), char *name)
     printf("Testing\033[31m %s\n", name);
     printf("\033[32m--------------------------\033[0m\n");
 
-    int test1[] = {5, 4, 3, 2, 1};
+    /* int test1[] = {5, 4, 3, 2, 1}; */
+    int test1[] = {79, 117, 26, 33, 567, 32, 1, 39, 10};
     int test2[] = {1, 2, 3, 4, 5};
     int test3[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
     int test4[] = {7, 7, 7, 7, 7, 7, 7, 7, 7};
@@ -77,6 +80,7 @@ int _test_sort(void (*sort)(int *, int), char *name)
     int len4 = sizeof(test4) / sizeof(test4[0]);
     int len5 = sizeof(test5) / sizeof(test5[0]);
     int len7 = sizeof(test7) / sizeof(test7[0]);
+    int len8 = 15;
 
     int results[8];
     results[0] = sort_and_check(test1, len1, "Test 1 (Reverse Order)", sort);
@@ -87,7 +91,6 @@ int _test_sort(void (*sort)(int *, int), char *name)
     results[5] = sort_and_check(test6, 0, "Test 6 (Empty Array)", sort);
     results[6] = sort_and_check(test7, len7, "Test 7 (Single Element)", sort);
 
-    int len8 = 1000;
     int *test8 = (int *)malloc(len8 * sizeof(int));
     for (int i = 0; i < len8; i++) {
         test8[i] = rand() % 5000;  
