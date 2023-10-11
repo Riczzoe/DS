@@ -80,7 +80,7 @@ int _test_sort(void (*sort)(int *, int), char *name)
     int len4 = sizeof(test4) / sizeof(test4[0]);
     int len5 = sizeof(test5) / sizeof(test5[0]);
     int len7 = sizeof(test7) / sizeof(test7[0]);
-    int len8 = 15;
+    int len8 = 1000;
 
     int results[8];
     results[0] = sort_and_check(test1, len1, "Test 1 (Reverse Order)", sort);
