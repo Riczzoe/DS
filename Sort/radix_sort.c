@@ -52,30 +52,32 @@ static void better_counting_sort(int *elems, int len, int significant)
         elems[i] = aux[i];
 }
 
-static void counting_sort(int *elems, int len, int significant) 
-{
-    int counts[RADIX] = {0};
-    int start_point[RADIX] = {0};
-    int aux[len];
-    int i, digit;
-
-    for (i = 0; i < len; i++) {
-        digit = (elems[i] / significant) % RADIX;
-        counts[digit]++;
-    }
-
-    for (i = 1; i < RADIX; i++) 
-        start_point[i] = start_point[i - 1] + counts[i - 1];
-
-    for (i = 0; i < len; i++) {
-        digit = (elems[i] / significant) % RADIX;
-        aux[start_point[digit]] = elems[i];
-        start_point[digit]++;
-    }
-    
-    for (i = 0; i < len; i++) 
-        elems[i] = aux[i];
-}
+/*
+ * static void counting_sort(int *elems, int len, int significant) 
+ * {
+ *     int counts[RADIX] = {0};
+ *     int start_point[RADIX] = {0};
+ *     int aux[len];
+ *     int i, digit;
+ * 
+ *     for (i = 0; i < len; i++) {
+ *         digit = (elems[i] / significant) % RADIX;
+ *         counts[digit]++;
+ *     }
+ * 
+ *     for (i = 1; i < RADIX; i++) 
+ *         start_point[i] = start_point[i - 1] + counts[i - 1];
+ * 
+ *     for (i = 0; i < len; i++) {
+ *         digit = (elems[i] / significant) % RADIX;
+ *         aux[start_point[digit]] = elems[i];
+ *         start_point[digit]++;
+ *     }
+ *     
+ *     for (i = 0; i < len; i++) 
+ *         elems[i] = aux[i];
+ * }
+ */
 
 void radix_sort(int *elems, int len)
 {
