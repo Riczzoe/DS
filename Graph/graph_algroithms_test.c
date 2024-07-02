@@ -11,6 +11,25 @@ int main(void)
         return -1;
     } 
     printf("graph_create success\n");
+    graph_add_edge(&G, 0, 4);
+    graph_add_edge(&G, 1, 5);
+    graph_add_edge(&G, 2, 6);
+    graph_add_edge(&G, 3, 7);
+
+    graph_add_edge(&G, 5, 6);
+    graph_add_edge(&G, 6, 7);
+    graph_add_edge(&G, 0, 1);
+    graph_add_edge(&G, 2, 5);
+    graph_add_edge(&G, 2, 6);
+
+    graph_add_edge(&G, 2, 6);
+    graph_add_edge(&G, 2, 6);
+    graph_add_edge(&G, 2, 6);
+
+
+
+
+
     graph_add_edge(&G, 0, 1);
     graph_add_edge(&G, 0, 2);
     graph_add_edge(&G, 0, 3);
